@@ -1,0 +1,117 @@
+﻿@model SocialWS.ViewModel.UserRegistrationViewModel
+
+@using Resources = SocialWS.Resources.UserRegistration
+
+@{
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+@section Navigation
+{
+    <ul class="title-area">
+        <li class="name"><h1><a href="#">@Resources.J4x</a></h1></li>
+    </ul>
+}
+
+<div class="row">
+    <div class="large-12 columns">
+        <div class="row">
+            <div class="large-6 push-3 columns" style="padding-top: 100px">
+                <div class="panel">
+                    <h3>@Resources.Register</h3>
+                    <div class="row" style="padding-left:30px">
+                        @using (Html.BeginForm("RegisterNewUser", "Home"))
+                        {
+                            <div class="row">
+                                <div class ="large-12 columns">
+                                    @Html.Label(Resources.FirstName)
+                                </div>
+                                <div class="large-6 columns">                                   
+                                    @Html.TextBoxFor(m => m.FirstName)
+                                </div>
+                                <div class="large-6 columns" style="color: red; font-size:12px">
+                                    @Html.ValidationMessageFor(m => m.FirstName)
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class ="large-12 columns">
+                                    @Html.Label(Resources.LastName)
+                                </div>
+                                <div class="large-6 columns">
+                                    @Html.TextBoxFor(m => m.LastName)
+                                </div>
+                                <div class="large-6 columns" style="color: red; font-size:12px">
+                                    @Html.ValidationMessageFor(m => m.LastName)
+                                </div>
+                            </div>
+                                                      
+                            <div class="row">
+                                <div class ="large-12 columns">
+                                    @Html.Label(Resources.UserName)
+                                </div>
+                                <div class="large-8 columns">
+                                    @Html.TextBoxFor(m => m.UserName)       
+                                </div>
+                                <div class="large-4 columns" style="color: red; font-size:12px">
+                                    @Html.ValidationMessageFor(m => m.UserName)
+                                    @Html.ValidationMessage("UsernameExists")
+                                </div>
+                            </div>
+                             
+                            <div class="row">
+                                <div class ="large-12 columns">
+                                    @Html.Label(Resources.Password)
+                                </div>
+                                <div class="large-8 columns">
+                                    @Html.TextBoxFor(m => m.Password, new {@type = "password"})       
+                                </div>
+                                <div class="large-4 columns" style="color: red; font-size:12px">
+                                    @Html.ValidationMessageFor(m => m.Password)
+                                </div>
+                            </div>
+                             
+                            <div class="row">
+                                <div class ="large-12 columns">
+                                    @Html.Label(Resources.EmailAddress)
+                                </div>
+                                <div class="large-8 columns">
+                                    @Html.TextBoxFor(m => m.EmailAddress)       
+                                </div>
+                                <div class="large-4 columns" style="color: red; font-size:12px">
+                                    @Html.ValidationMessageFor(m => m.EmailAddress)
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class ="large-12 columns">
+                                    @Html.Label(Resources.RegKey)
+                                </div>
+                                <div class="large-8 columns">
+                                    @Html.TextBoxFor(m => m.RegistrationKey)       
+                                </div>
+                                <div class="large-4 columns" style="color: red; font-size:12px">
+                                    @Html.ValidationMessageFor(m => m.RegistrationKey)
+                                </div>
+                            </div>
+                                                     
+                            <div class="large-12 columns">
+                                <div class="row">
+                                    <div class="large-6 columns">
+                                        <input type="submit" class="button success"value="@Resources.SubmitRegistration"/>  
+                                    </div>
+                                    <div class="large-6 columns">
+                                        @Html.ActionLink(Resources.ReturnToLogin, "UserLogin", "Home", new {@class = "button alert"}) 
+                                    </div> 
+                                </div>                                                             
+                            </div> 
+                                                                                         
+                        }                                              
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

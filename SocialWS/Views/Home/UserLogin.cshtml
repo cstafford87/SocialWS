@@ -1,0 +1,51 @@
+﻿@model SocialWS.ViewModel.LoginViewModel
+@using Resources = SocialWS.Resources.LoginUser
+
+@{
+   Layout = "~/Views/Shared/_MasterLayout.cshtml";  
+}
+
+@section Navigation
+{
+    <ul class="title-area">
+        <li class="name"><h1><a href="#">@Resources.J4x</a></h1></li>
+    </ul>
+}
+<div class="row">
+    <div class="large-12 columns">
+        <div class="row">
+            <div class="large-6 push-3 columns" style="padding-top: 100px">
+                <div class="panel">
+                      
+                    <h3>@Resources.Login</h3>
+
+                    <div class="row">
+                        @using (Html.BeginForm("UserLoginRequest", "Home"))
+                        {
+                            <div class="row">
+                                <div class ="large-12 push-3 columns" style="padding-bottom:10px">
+                                    @Html.ValidationMessage("IncorrectUserPassword", new{ @style = "color:red"})
+                                </div>
+                            </div>
+                            
+                            
+                            <div class ="large-12 columns">
+                                @Html.Label(Resources.UserName)
+                                @Html.TextBoxFor(m => m.Username)
+                            </div>
+                            <div class ="large-12 columns">
+                                @Html.Label(Resources.Password)
+                                @Html.TextBoxFor(m => m.Password, new {@type = "password"})
+                            </div>
+                            <div class ="large-12 columns">
+                                <input type="submit" class="button" value="Login"/>
+                                @Html.ActionLink(Resources.Register, "NewUserRegistration", "Home", new {@class = "button"})
+                            </div>
+                        }                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

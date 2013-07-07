@@ -1,0 +1,27 @@
+﻿@model SocialWS.ViewModel.UserViewModel
+
+@{
+    ViewBag.Title = "J4x";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml"; 
+}
+
+@section Navigation
+{
+    <ul class="title-area">
+        <li class="name"><h1><a href="#">J4x Social Network</a></h1></li>
+    </ul>
+    <section class="top-bar-section">
+        <ul class="right">
+            <li class="divider"></li>
+            <li><a href="#">@Model.FirstName @Model.LastName</a></li>
+            <li class="divider"></li>
+            <li>@Html.ActionLink("Logout", "LogoutUser", "Home")</li>
+        </ul>
+    </section>
+
+}
+
+<h2>Welcome @Model.Username</h2>
+
+
+
